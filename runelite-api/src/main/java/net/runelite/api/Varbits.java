@@ -437,6 +437,11 @@ public enum Varbits
 	CORP_DAMAGE(999),
 
 	/**
+	 * Corp beast damage
+	 */
+	DRAKE_DAMAGE(999),
+
+	/**
 	 * Toggleable slayer unlocks
 	 */
 	SUPERIOR_ENABLED(5362),

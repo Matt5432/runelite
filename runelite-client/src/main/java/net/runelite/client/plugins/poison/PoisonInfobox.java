@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018 Hydrox6 <ikada@protonmail.ch>
+ * Copyright (c) 2018, Lucas <https://github.com/Lucwousin>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,9 +34,9 @@ class PoisonInfobox extends Timer
 {
 	private final PoisonPlugin plugin;
 
-	PoisonInfobox(BufferedImage image, PoisonPlugin plugin)
+	PoisonInfobox(Long period, BufferedImage image, PoisonPlugin plugin)
 	{
-		super(PoisonPlugin.POISON_TICK_MILLIS, ChronoUnit.MILLIS, image, plugin);
+		super(period, ChronoUnit.MILLIS, image, plugin);
 		this.plugin = plugin;
 	}
 
@@ -48,7 +49,20 @@ class PoisonInfobox extends Timer
 	@Override
 	public Color getTextColor()
 	{
-		return Color.RED.brighter();
+		// If the next poison tick is the end time (AKA when there's <18 sec left)
+		if (getEndTime().equals(plugin.nextPoisonTickTime))
+		{
+			return Color.RED.brighter();
+		}
+		// Above should have caught all damage/venom hitting, so the only time the timer doesn't end
+		// on poisonDecayTime is when it's the antivenom overlay.
+		else if (!getEndTime().equals(plugin.poisonDecayTime))
+		{
+			return Color.GREEN;
+		}
+		else
+		{
+			return Color.WHITE;
+		}
 	}
 }
-

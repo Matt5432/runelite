@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018 Hydrox6 <ikada@protonmail.ch>
+ * Copyright (c) 2018, Lucas <https://github.com/Lucwousin>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,13 +34,25 @@ public interface PoisonConfig extends Config
 {
 	String GROUP = "poison";
 
-	@ConfigItem(
-		keyName = "showInfoboxes",
-		name = "Show Infoboxes",
-		description = "Configures whether to show the infoboxes"
+	@ConfigItem (
+			keyName = "showPoisonInfoboxes",
+			name = "Show Poison Infoboxes",
+			description = "Configures whether to show the infoboxes for poison and venom<br>" +
+					"Shows: Next hit time, next damage. On hover: Time to cure."
 	)
-	default boolean showInfoboxes()
+	default boolean showPoisonInfoboxes()
 	{
 		return false;
+	}
+
+	@ConfigItem (
+			keyName = "showAntiInfoboxes",
+			name = "Show Antipoison Infoboxes",
+			description = "Configures whether to show the infoboxes for antivenom and antipoisons.<br>" +
+					"Shows: Antipoison and antivenom duration"
+	)
+	default boolean showAntiInfoboxes()
+	{
+		return true;
 	}
 }

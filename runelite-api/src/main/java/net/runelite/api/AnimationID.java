@@ -155,7 +155,7 @@ public final class AnimationID
 	public static final int HELLHOUND_DEFENCE = 6566;
 //drake
 	public static final int DRAKE_MAGIC_ATTACK = 1636;
-	public static final int DRAKE_RANGE_ATTACK = 8275;
+	public static final int DRAKE_MELEE_ATTACK = 8275;
 
 	// Farming
 	public static final int FARMING_HARVEST_FRUIT_TREE = 2280;
@@ -200,5 +200,7 @@ public final class AnimationID
 	public static final int VORKATH_WAKE_UP = 7950;
 	public static final int VORKATH_DEATH = 7949;
 	public static final int VORKATH_SLASH_ATTACK = 7951;
+
+
 
 }
